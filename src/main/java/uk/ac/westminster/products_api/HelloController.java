@@ -32,5 +32,6 @@ public class HelloController {
     public String goodbye(){return "Goodbye from Spring Boots!";}
 
     // TODO (Activity 3): add your /goodbye endpoint here.
-
+    @GetMapping("InfoController")
+    public String InfoController(){return LocalDate.now().toString();}
 }
