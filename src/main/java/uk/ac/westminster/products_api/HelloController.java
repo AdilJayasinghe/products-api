@@ -1,7 +1,6 @@
 package uk.ac.westminster.products_api;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 
@@ -16,6 +15,7 @@ import java.time.LocalDate;
  */
 
 @RestController
+@RequestMapping
 public class HelloController {
 
     @GetMapping("/hello")
@@ -31,7 +31,20 @@ public class HelloController {
     @GetMapping("/goodbye")
     public String goodbye(){return "Goodbye from Spring Boots!";}
 
-    // TODO (Activity 3): add your /goodbye endpoint here.
+    // TODO (Activity 3): add your /goyodbye endpoint here.
     @GetMapping("InfoController")
     public String InfoController(){return LocalDate.now().toString();}
+
+    @GetMapping("/{id}")
+    public Person getPersonById(@PathVariable int id) {
+        return new Person(id,"John","email");
+    }
+
+    //@GetMapping
+    //PUBLIC IST<product>Get Product
+
+    @PostMapping("/person")
+    public Person addPerson(@RequestBody Person p) {
+        return p;
+    }
 }
