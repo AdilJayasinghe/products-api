@@ -1,6 +1,8 @@
-package uk.ac.westminster.products_api;
+package Controllers;
 
 import org.springframework.web.bind.annotation.*;
+import uk.ac.westminster.products_api.Address;
+import uk.ac.westminster.products_api.Customer;
 
 @RestController
 @RequestMapping("/customers")

@@ -1,7 +1,10 @@
 package uk.ac.westminster.products_api;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * 5COSC019W Object Oriented Programming - Week 1 starter project.
@@ -11,7 +14,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * web server on http://localhost:8080
  */
 
-@SpringBootApplication
+
+@SpringBootConfiguration
+@EnableAutoConfiguration
+@ComponentScan({"uk.ac.westminster.products_api","Service"})
 public class ProductsApiApplication {
 
 	public static void main(String[] args) {
