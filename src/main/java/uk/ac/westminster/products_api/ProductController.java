@@ -7,21 +7,22 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/products")
 public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("/products")
+    @GetMapping
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
 
-    @GetMapping("/products/{id}")
+    @GetMapping("/{id}")
     public Product getProductById(@PathVariable Long id) {
         return productService.GetProductById(id).orElse(null);
     }
 
-    @GetMapping("/products/search")
+    @GetMapping("/search")
     public List<Product> search(@RequestParam String name) {
         return productService.FindByName(name);
     }
@@ -31,7 +32,7 @@ public class ProductController {
         return productService.AddProduct(product);
     }
 
-    @DeleteMapping("/products/{id}")
+    @DeleteMapping("/{id}")
     public void deleteProductById(@PathVariable Long id){
         productService.DeleteProductById(id);
     }
