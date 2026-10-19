@@ -1,4 +1,4 @@
-package Controllers;
+package uk.ac.westminster.products_api.Controllers;
 
 import org.springframework.web.bind.annotation.*;
 import uk.ac.westminster.products_api.Person;
