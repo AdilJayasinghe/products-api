@@ -1,4 +1,4 @@
-package uk.ac.westminster.products_api.Controllers;
+package Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -29,13 +29,18 @@ public class ProductController {
     }
 
     @PostMapping
-    public Product addProduct(@RequestBody Product product){
-        return productService.AddProduct(product);
+    public Product addProduct(@RequestBody Product DigitalProduct){
+        return productService.AddProduct(DigitalProduct);
     }
 
     @DeleteMapping("/{id}")
     public void deleteProductById(@PathVariable Long id){
         productService.DeleteProductById(id);
+    }
+
+    @GetMapping("/summarise")
+    public List<String> getSummaries(){
+        return productService.getAllSummaries();
     }
 
 }

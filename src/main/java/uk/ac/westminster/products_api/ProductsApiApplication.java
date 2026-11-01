@@ -17,7 +17,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootConfiguration
 @EnableAutoConfiguration
-@ComponentScan({"uk.ac.westminster.products_api","Service"})
+@ComponentScan({"uk.ac.westminster.products_api","Service","Controllers"})
 public class ProductsApiApplication {
 
 	public static void main(String[] args) {

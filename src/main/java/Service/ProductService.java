@@ -41,4 +41,14 @@ public class ProductService {
     public List<Product> FindByName(String name) {
         return products.stream().filter(p -> p.getName().contains(name)).toList();
     }
+
+    public List<String> getAllSummaries(){
+        List<String> summarise = new ArrayList<>();
+
+        for(Product p: products){
+            summarise.add(p.getSummary());
+        }
+
+        return summarise;
+    }
 }

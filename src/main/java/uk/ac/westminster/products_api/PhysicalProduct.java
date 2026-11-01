@@ -1,8 +1,20 @@
 package uk.ac.westminster.products_api;
 
-public class PhysicalProduct extends Product{
+public class PhysicalProduct extends Product implements Discountable{
     private double weight;
     private String dimension;
+    private double discountedPrice;
+
+    @Override
+    public void applyDiscount(double rate) {
+        double capped = Math.min(rate, 0.20);
+        discountedPrice = getPrice() * (1 - capped);
+    }
+
+    @Override
+    public double getDiscountedPrice() {
+        return discountedPrice;
+    }
 
     public PhysicalProduct() {
     }
@@ -32,4 +44,9 @@ public class PhysicalProduct extends Product{
     //A PhysicalProduct IS-A Product
     //because it extends out of the Product class. a Customer cannot be extended from Product as they
     // dont share an id name and price
+
+    @Override
+    public String getSummary(){
+        return "Digital: " + getName() + " | Weight: " + getWeight();
+    }
 }
